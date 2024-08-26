@@ -659,6 +659,12 @@ func (p *parser) parseOperation(pkgPath, pkgName string, astComments []*ast.Comm
 			err = p.parseParamComment(pkgPath, pkgName, operation, strings.TrimSpace(comment[len(attribute):]))
 		case "@success", "@failure":
 			err = p.parseResponseComment(pkgPath, pkgName, operation, strings.TrimSpace(comment[len(attribute):]))
+		case "@security":
+			fields := strings.Split(comment, " ")
+			security := map[string][]string{
+				fields[1]: fields[2:],
+			}
+			operation.Security = append(p.OpenAPI.Security, security)
 		case "@resource", "@tag":
 			resource := strings.TrimSpace(comment[len(attribute):])
 			if resource == "" {

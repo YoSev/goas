@@ -72,12 +72,12 @@ type PathItemObject struct {
 type OperationObject struct {
 	Responses ResponsesObject `json:"responses"` // Required
 
-	Tags        []string           `json:"tags,omitempty"`
-	Summary     string             `json:"summary,omitempty"`
-	Description string             `json:"description,omitempty"`
-	Parameters  []ParameterObject  `json:"parameters,omitempty"`
-	RequestBody *RequestBodyObject `json:"requestBody,omitempty"`
-
+	Tags        []string              `json:"tags,omitempty"`
+	Summary     string                `json:"summary,omitempty"`
+	Description string                `json:"description,omitempty"`
+	Parameters  []ParameterObject     `json:"parameters,omitempty"`
+	RequestBody *RequestBodyObject    `json:"requestBody,omitempty"`
+	Security    []map[string][]string `json:"security,omitempty"`
 	// Tags
 	// ExternalDocs
 	// OperationID
