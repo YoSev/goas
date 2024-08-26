@@ -818,7 +818,7 @@ func (p *parser) parseResponseComment(pkgPath, pkgName string, operation *Operat
 		return fmt.Errorf("parseResponseComment: http status must be int, but got %s", status)
 	}
 	switch matches[2] {
-	case "object", "array", "{object}", "{array}":
+	case "object", "array", "{object}", "{array}", "empty":
 	default:
 		return fmt.Errorf("parseResponseComment: invalid jsonType %s", matches[2])
 	}
